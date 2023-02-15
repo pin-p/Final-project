@@ -1,34 +1,20 @@
-# medusa-ml-template
+# Fashion Grader
 
-a template project for machine learning experiments, using dockerized tensorflow environments and data downloaders
+This project leverages machine learning using a dockerized tensorflow environment and data downloader. The datasets are fashion images which can be classified as fashionable or unfashionable.
 
 # Requirements
 
 * [docker](https://www.docker.com/)
 * a bash shell
 
-# Getting Started
+# Project Outline
+I trained this model in a dockerized tensorflow environment using Jupyter notebook. 
 
-* start your training environment by running ```sh run-training-environment.sh``` or ```sh gpu-environment.sh``` and follow the link to the jupyter server
-* Use a [downloader](./downloader/) to download a dataset into the [data](./data/) folder
-* Run a [training notebook](./training_notebooks) to fit your model
-* Export your model to the [saved models](./saved_models) folder
-* Shrink, optimize, and deploy your model, see [deploy](./deploy) for examples 
+## Dataset:
+I filtered the captioned dataset at https://laion.ai/ to find stylish and unstylish images using the keywords 'new york street style, street style, OOTD, millenial fashion'. These images were downloaded in a JSON format. You can read the JSON into a Dataframe to make the URLs more accessible, then convert them to lists for each data set, stylish/unstylish.
 
-# Frequently Asked Questions
+## Downloader: 
+I built a custom data downloader that extracted the url from the JSON file, tested the URL for the response status code, and skipped any URLs that where not successful. Images were downloaded from the successful status codes into my data folders: stylish, unstylish, test-images. 
 
-### Will this run on Windows or macOS?
+# Final Model
 
-Yes, but you need to install docker first, see link above. if on Windows run the ```windows-training-environment.sh``` feel free to open an issue if that doesn't work. 
-
-### How to I shut down the notebook?
-
-Go to the terminal where you ran the ```run-training....sh``` and press ```CTRL+C```, [WTF](https://medium.com/@aantipov/what-happens-when-you-ctrl-c-in-the-terminal-36b093443e06)
-
-### What the hell is this notebook stuff?
-
-Try this tutorial to learn more [tutorial](https://jupyter.org/try)
-
-### Can I deploy this in a cloud environment via Docker? or run it on my big ML rig with many nvidia GPUs?
-
-Hell yes you can! I'll eventually write a more detailed guide here on how to do that, but the setup is almost identical to running locally.
