@@ -8,8 +8,7 @@ This project leverages machine learning using a dockerized tensorflow environmen
 * a bash shell
 
 # Project Outline
-I trained this model in a dockerized tensorflow environment using Jupyter notebook. 
-
+This model grades test images against a fashionable data set to determine if they are fashionable or unfashionable. Much like Instagram, it should only identify images that I should find aesthetically pleasing as fashionable. The original data set was too large, so I had to reduce my dataset to successfully train the model. Next steps will be to train the model in a cloud environment using my original dataset.
 ## Dataset:
 I filtered the captioned dataset at https://laion.ai/ to find stylish and unstylish images using the keywords 'new york street style, street style, OOTD, millenial fashion'. These images were downloaded in a JSON format. You can read the JSON into a Dataframe to make the URLs more accessible, then convert them to lists for each data set, stylish/unstylish.
 
